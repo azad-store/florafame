@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Place Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Place Your Order</h1>
+    <div class="product-summary" id="summary"></div>
+
+    <form action="https://formsubmit.co/azad.singh150881@gmail.com" method="POST" onsubmit="confirmOrder()">
+      <input type="hidden" name="_subject" id="emailSubject" />
+      <input type="text" name="Name" placeholder="Your Name" required><br>
+      <input type="email" name="Email" placeholder="Email Address" required><br>
+      <input type="text" name="Location" placeholder="Delivery Location" required><br>
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    const query = new URLSearchParams(window.location.search);
+    const product = query.get("product");
+    const price = query.get("price");
+    document.getElementById("summary").textContent = `Ordering: ${product} – ₹${price}`;
+    document.getElementById("emailSubject").value = `New Order for ${product} worth ₹${price}`;
+    function confirmOrder() {
+      alert("✅ Order placed successfully!");
+    }
+  </script>
+</body>
+</html>

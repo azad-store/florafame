@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Product</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Select a Product</h1>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="product1.jpg" alt="Product 1">
+        <p>Product 1 – ₹99</p>
+        <button class="buy-button" onclick="openOrder('Product 1', 99)">I'm Interested</button>
+      </div>
+      <div class="product-card">
+        <img src="product2.jpg" alt="Product 2">
+        <p>Product 2 – ₹49</p>
+        <button class="buy-button" onclick="openOrder('Product 2', 49)">I'm Interested</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openOrder(product, price) {
+      window.location.href = `order.html?product=${encodeURIComponent(product)}&price=${encodeURIComponent(price)}`;
+    }
+  </script>
+</body>
+</html>
